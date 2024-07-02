@@ -12,8 +12,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Animal.name,
-                                           ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Animal.name, ascending: true)],
         animation: .default)
     private var animals: FetchedResults<Animal>
 
@@ -77,5 +76,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    ContentView()
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
