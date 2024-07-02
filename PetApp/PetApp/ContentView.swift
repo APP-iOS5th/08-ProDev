@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    let coreDM: CoreDataManager
-    
+    @Environment(\.managedObjectContext) private var viewContext
+        
     @State var petName = ""
     @State var petBreed = ""
-    @State var petArray = [Animal]()
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Animal.name, ascending: true)],
+        animation: .default)
+    private var animals: FetchedResults<Animal>
     
     var body: some View {
         VStack {
@@ -22,39 +25,32 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button("Save") {
-                coreDM.savePet(name: petName, breed: petBreed)
-                displayPets()
+                let pet = Animal(context: viewContext)
+                pet.name = petName
+                pet.breed = petBreed
+                do {
+                    try viewContext.save()
+                } catch {
+                    
+                }
                 petName = ""
                 petBreed = ""
             }
             
             List {
-                ForEach(petArray, id: \.self) { pet in
+                ForEach(animals, id: \.self) { pet in
                     VStack {
                         Text(pet.name ?? "")
                         Text(pet.breed ?? "")
                     }
                 }
-                .onDelete(perform: { indexSet in
-                    indexSet.forEach { index in
-                        let pet = petArray[index]
-                        coreDM.deletePet(animal: pet)
-                        displayPets()
-                    }
-                })
             }
         }
         .padding()
-        .onAppear {
-            displayPets()
-        }
-    }
-    
-    func displayPets() {
-        petArray = coreDM.getAllPets()
     }
 }
 
-#Preview {
-    ContentView(coreDM: CoreDataManager())
-}
+// 프리뷰 오류
+//#Preview {
+//    ContentView()
+//}
