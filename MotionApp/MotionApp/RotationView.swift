@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RotationView.swift
 //  MotionApp
 //
 //  Created by Jungman Bae on 7/3/24.
@@ -8,13 +8,14 @@
 import SwiftUI
 import CoreMotion
 
-struct ContentView: View {
+struct RotationView: View {
     let motionManager = CMMotionManager()
     let queue = OperationQueue()
-    
+
     @State private var x: Double = 0.0
     @State private var y: Double = 0.0
     @State private var z: Double = 0.0
+
     
     var body: some View {
         VStack {
@@ -22,28 +23,26 @@ struct ContentView: View {
             Text("y: \(y)")
             Text("z: \(z)")
         }
-        .padding()
+        .navigationTitle("Rotation")
         .onAppear {
-            motionManager.startAccelerometerUpdates(to: queue) { 
-                (data: CMAccelerometerData?, error: Error?) in
+            motionManager.startGyroUpdates(to: queue) {
+                (data: CMGyroData?, error: Error?) in
                 guard let data = data else {
-                    print("error: \(error!)")
+                    print("Error: \(error!)")
                     return
                 }
-                
-                let trackMotion: CMAcceleration = data.acceleration
-                motionManager.accelerometerUpdateInterval = 0.5
+                let trackMotion: CMRotationRate = data.rotationRate
+                motionManager.gyroUpdateInterval = 0.5
                 DispatchQueue.main.async {
                     x = trackMotion.x
                     y = trackMotion.y
                     z = trackMotion.z
                 }
-
             }
         }
     }
 }
 
 #Preview {
-    ContentView()
+    RotationView()
 }
