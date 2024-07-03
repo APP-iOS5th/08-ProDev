@@ -15,11 +15,19 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             PetListView(animals: petArray)
+                .navigationTitle("SearchApp")
         }
-        .searchable(text: $searchText) {
+        .navigationBarTitleDisplayMode(.automatic)
+        .searchable(text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Look for a pet") {
+            Text("Singing").searchCompletion("Canary")
+            Text("Croaking").searchCompletion("Frog")
+            Text("Grumpy").searchCompletion("Cat")
+            Divider()
             // searchText 가 비었을 경우, hasPrefix는 true 를 리턴
             // 배열의 모든 요소가 출력됨
-            ForEach(petArray.filter { $0.hasPrefix(searchText)}, id: \.self) { name in
+            ForEach(petArray.filter {  $0.hasPrefix(searchText) }, id: \.self) { name in
                 Text(name)
             }
         }
@@ -35,6 +43,8 @@ struct PetListView: View {
     var body: some View {
         List(animals, id: \.self) { animal in
             Text(animal)
+                .background(.yellow)
         }
+        .listStyle(.plain)
     }
 }
