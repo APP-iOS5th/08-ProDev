@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreMotion
 
-struct ContentView: View {
+struct AccelerationView: View {
     let motionManager = CMMotionManager()
     let queue = OperationQueue()
     
@@ -22,6 +22,7 @@ struct ContentView: View {
             Text("y: \(y)")
             Text("z: \(z)")
         }
+        .navigationTitle("Acceleration")
         .padding()
         .onAppear {
             motionManager.startAccelerometerUpdates(to: queue) { 
@@ -45,5 +46,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    AccelerationView()
 }
