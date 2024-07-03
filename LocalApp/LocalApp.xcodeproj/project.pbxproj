@@ -11,6 +11,7 @@
 		3772169C2C34D11700741F6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3772169B2C34D11700741F6F /* ContentView.swift */; };
 		3772169E2C34D11900741F6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3772169D2C34D11900741F6F /* Assets.xcassets */; };
 		377216A12C34D11900741F6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377216A02C34D11900741F6F /* Preview Assets.xcassets */; };
+		377216AB2C34D29200741F6F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 377216A92C34D29200741F6F /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,10 @@
 		3772169B2C34D11700741F6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3772169D2C34D11900741F6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		377216A02C34D11900741F6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		377216AA2C34D29200741F6F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		377216B02C34D3F800741F6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		377216B12C34D3FA00741F6F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		377216B22C34D3FE00741F6F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 				3772169B2C34D11700741F6F /* ContentView.swift */,
 				3772169D2C34D11900741F6F /* Assets.xcassets */,
 				3772169F2C34D11900741F6F /* Preview Content */,
+				377216A92C34D29200741F6F /* Localizable.strings */,
 			);
 			path = LocalApp;
 			sourceTree = "<group>";
@@ -128,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377216AB2C34D29200741F6F /* Localizable.strings in Resources */,
 				377216A12C34D11900741F6F /* Preview Assets.xcassets in Resources */,
 				3772169E2C34D11900741F6F /* Assets.xcassets in Resources */,
 			);
@@ -146,6 +153,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		377216A92C34D29200741F6F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				377216AA2C34D29200741F6F /* ko */,
+				377216B02C34D3F800741F6F /* en */,
+				377216B12C34D3FA00741F6F /* fr */,
+				377216B22C34D3FE00741F6F /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		377216A22C34D11900741F6F /* Debug */ = {
