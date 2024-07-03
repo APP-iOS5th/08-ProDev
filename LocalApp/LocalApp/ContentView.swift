@@ -11,8 +11,8 @@ struct ContentView: View {
     @State var changeColor = false
     var body: some View {
         VStack {
-            // Text, Button     
             Text(LocalizedStringKey("greeting-label"))
+            // Text, Button 는 LocalizedStringKey 를 직접 넣을 수 있다.
             Text("greeting-label")
             Button("button-label") {
                 changeColor.toggle()
@@ -27,6 +27,7 @@ struct ContentView: View {
     ContentView()
 }
 
+// 언어 미리보기 설정
 #Preview("English") {
     ContentView()
         .environment(\.locale, .init(identifier: "en"))
