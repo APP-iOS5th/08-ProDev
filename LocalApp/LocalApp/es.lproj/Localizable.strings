@@ -1,9 +1,2 @@
-/* 
-  Localize-legacy.strings
-  LocalApp
-
-  Created by Jungman Bae on 7/3/24.
-  
-*/
 "greeting-label" = "Hola Mundo";
 "button-label" = "Tocame";
