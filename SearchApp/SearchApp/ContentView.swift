@@ -7,43 +7,35 @@
 
 import SwiftUI
 
-enum ProductScope {
-    case fruit
-    case vegetable
-}
-
-
 struct ContentView: View {
-    @State private var scope: ProductScope = .fruit
-
-    @State var searchText = ""
+    @State private var searchText = ""
+    @State private var searchScope = 0
     
-    let petArray = ["Cat", "Dog", "Fish", "Donkey", "Canary", "Camel", "Frog"]
-        
-    var body: some View {
-        NavigationStack {
-            PetListView(animals: petArray)
-                .navigationTitle("SearchApp")
+    let fruits = ["Apple", "Banana", "Cherry", "Date", "Fig", "Orange"]
+    let scopes = ["All", "A-M", "N-Z"]
+    
+    var filteredFruits: [String] {
+        let filtered = fruits.filter { searchText.isEmpty || $0.localizedCaseInsensitiveContains(searchText) }
+        switch searchScope {
+        case 1: return filtered.filter { $0.prefix(1).localizedCaseInsensitiveCompare("N") == .orderedAscending }
+        case 2: return filtered.filter { $0.prefix(1).localizedCaseInsensitiveCompare("N") != .orderedAscending }
+        default: return filtered
         }
-        .navigationBarTitleDisplayMode(.automatic)
-        .searchable(text: $searchText,
-                    placement: .navigationBarDrawer(displayMode: .always),
-                    prompt: "Look for a pet") {
-//            Text("Singing").searchCompletion("Canary")
-//            Text("Funny").searchCompletion("Canary")
-//            Text("Croaking").searchCompletion("Frog")
-//            Text("Grumpy").searchCompletion("Cat")
-            
-            // searchText 가 비었을 경우, hasPrefix는 true 를 리턴
-            // 배열의 모든 요소가 출력됨
-            ForEach(petArray.filter {  $0.hasPrefix(searchText) }, id: \.self) { name in
-                Text(name)
+    }
+    
+    var body: some View {
+        NavigationView {
+            List(filteredFruits, id: \.self) { fruit in
+                Text(fruit)
+            }
+            .navigationTitle("Fruits")
+            .searchable(text: $searchText)
+            .searchScopes($searchScope) {
+                ForEach(0..<scopes.count, id: \.self) { index in
+                    Text(scopes[index]).tag(index)
+                }
             }
         }
-                    .searchScopes($scope) {
-                        Text("Fruit").tag(ProductScope.fruit)
-                        Text("Vegetable").tag(ProductScope.vegetable)
-                    }
     }
 }
 
