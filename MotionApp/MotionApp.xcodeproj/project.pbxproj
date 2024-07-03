@@ -13,6 +13,7 @@
 		377216FB2C350EF800741F6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377216FA2C350EF800741F6F /* Preview Assets.xcassets */; };
 		377217022C35177E00741F6F /* RotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377217012C35177E00741F6F /* RotationView.swift */; };
 		377217042C351ACD00741F6F /* MagneticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377217032C351ACD00741F6F /* MagneticView.swift */; };
+		377217062C351BAC00741F6F /* DeviceMotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377217052C351BAC00741F6F /* DeviceMotionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		377216FA2C350EF800741F6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		377217012C35177E00741F6F /* RotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationView.swift; sourceTree = "<group>"; };
 		377217032C351ACD00741F6F /* MagneticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticView.swift; sourceTree = "<group>"; };
+		377217052C351BAC00741F6F /* DeviceMotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMotionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				377216F52C350EF700741F6F /* AccelerationView.swift */,
 				377217012C35177E00741F6F /* RotationView.swift */,
 				377217032C351ACD00741F6F /* MagneticView.swift */,
+				377217052C351BAC00741F6F /* DeviceMotionView.swift */,
 				377216F72C350EF800741F6F /* Assets.xcassets */,
 				377216F92C350EF800741F6F /* Preview Content */,
 			);
@@ -145,6 +148,7 @@
 			files = (
 				377217042C351ACD00741F6F /* MagneticView.swift in Sources */,
 				377216F62C350EF700741F6F /* AccelerationView.swift in Sources */,
+				377217062C351BAC00741F6F /* DeviceMotionView.swift in Sources */,
 				377216F42C350EF700741F6F /* MotionAppApp.swift in Sources */,
 				377217022C35177E00741F6F /* RotationView.swift in Sources */,
 			);
