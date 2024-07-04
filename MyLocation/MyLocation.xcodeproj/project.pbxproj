@@ -11,6 +11,8 @@
 		377217302C365D2A00741F6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3772172F2C365D2A00741F6F /* ContentView.swift */; };
 		377217322C365D2B00741F6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377217312C365D2B00741F6F /* Assets.xcassets */; };
 		377217352C365D2B00741F6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377217342C365D2B00741F6F /* Preview Assets.xcassets */; };
+		3772173C2C365E2D00741F6F /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3772173B2C365E2D00741F6F /* MapViewModel.swift */; };
+		37C8E9972C3668A80038F3A1 /* PlaceInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8E9962C3668A80038F3A1 /* PlaceInfoPanel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		3772172F2C365D2A00741F6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		377217312C365D2B00741F6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		377217342C365D2B00741F6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3772173B2C365E2D00741F6F /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		37C8E9962C3668A80038F3A1 /* PlaceInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoPanel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				3772172D2C365D2A00741F6F /* MyLocationApp.swift */,
 				3772172F2C365D2A00741F6F /* ContentView.swift */,
+				37C8E9962C3668A80038F3A1 /* PlaceInfoPanel.swift */,
+				3772173B2C365E2D00741F6F /* MapViewModel.swift */,
 				377217312C365D2B00741F6F /* Assets.xcassets */,
 				377217332C365D2B00741F6F /* Preview Content */,
 			);
@@ -139,6 +145,8 @@
 			files = (
 				377217302C365D2A00741F6F /* ContentView.swift in Sources */,
 				3772172E2C365D2A00741F6F /* MyLocationApp.swift in Sources */,
+				3772173C2C365E2D00741F6F /* MapViewModel.swift in Sources */,
+				37C8E9972C3668A80038F3A1 /* PlaceInfoPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +283,7 @@
 				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +313,7 @@
 				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
