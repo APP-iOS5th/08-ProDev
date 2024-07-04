@@ -76,7 +76,7 @@ struct ContentView: View {
             }
             // iOS 17 이후 코드
             Map(position: $position) {
-                MapPolygon(coordinates: [.paris, .eiffelTower, .louvre])
+                MapPolygon(coordinates: [.notreDame, .eiffelTower, .louvre])
                             .stroke(.purple.opacity(0.7), lineWidth: 5)
                             .foregroundStyle(.purple.opacity(0.7))
                 ForEach(places, id: \.0) { place in
@@ -84,19 +84,19 @@ struct ContentView: View {
                         Image(systemName: "star.fill")
                             .foregroundStyle(.purple)
 //                            .background(.white)
-                            .clipShape(Circle())
+//                            .clipShape(Circle())
                     }
                 }
             }
             TextEditor(text: $message)
                 .frame(width: .infinity, height: 100)
         }
-        .onAppear {
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.distanceFilter = kCLDistanceFilterNone
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-        }
+//        .onAppear {
+//            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//            locationManager.distanceFilter = kCLDistanceFilterNone
+//            locationManager.requestWhenInUseAuthorization()
+//            locationManager.startUpdatingLocation()
+//        }
     }
 }
 
