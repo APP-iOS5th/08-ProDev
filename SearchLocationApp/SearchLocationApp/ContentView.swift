@@ -15,7 +15,18 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
-                Map(position: $viewModel.cameraPosition)
+                Map(position: $viewModel.cameraPosition) {
+                    ForEach(viewModel.searchResults, id: \.self) {
+                        place in
+                        Annotation(place.name ?? "", coordinate: place.placemark.coordinate) {
+                            Image(systemName: "mappin.circle.fill")
+                        }
+                    }
+                }
+                    .mapControls {
+                        MapScaleView()
+                        MapUserLocationButton()
+                    }
                     .mapStyle(viewModel.mapStyle)
                     .navigationTitle("SearchLocation")
                     .searchable(text: $viewModel.searchText)
@@ -36,20 +47,10 @@ struct ContentView: View {
                             viewModel.mapStyle = .standard
                         }
                     }
-                
-                HStack {
-                    Button(action: {
-                        viewModel.moveToCurrentLocation()
-                    }) {
-                        Image(systemName: "location.fill")
-                            .padding()
-                            .background(.white)
-                            .clipShape(Circle())
-                    }
-                    Spacer()
-                }
-                .padding()
             }
+        }
+        .onSubmit(of: .search) {
+            viewModel.searchLocation()
         }
     }
 }
