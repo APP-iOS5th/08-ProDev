@@ -40,15 +40,24 @@ class MediaListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mediaItemCell", for: indexPath)
+        
+        let item = items[indexPath.row]
 
         var config = cell.defaultContentConfiguration()    
-        config.text = items[indexPath.row].title
-        
+        config.text = item.title
+        config.image = UIImage(systemName: item.isVideo ? "video.square.fill" : "music.note")
+        cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = config
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        
+        let viewController = ViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 
 }
 
