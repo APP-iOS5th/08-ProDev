@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		37C8EA192C37A7CE0038F3A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8EA182C37A7CE0038F3A1 /* AppDelegate.swift */; };
 		37C8EA1B2C37A7CE0038F3A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8EA1A2C37A7CE0038F3A1 /* SceneDelegate.swift */; };
-		37C8EA1D2C37A7CE0038F3A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8EA1C2C37A7CE0038F3A1 /* ViewController.swift */; };
+		37C8EA1D2C37A7CE0038F3A1 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8EA1C2C37A7CE0038F3A1 /* MediaPlayerViewController.swift */; };
 		37C8EA222C37A7CF0038F3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37C8EA212C37A7CF0038F3A1 /* Assets.xcassets */; };
 		37C8EA252C37A7CF0038F3A1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 37C8EA242C37A7CF0038F3A1 /* Base */; };
 		37C8EA302C37AE280038F3A1 /* MediaListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8EA2F2C37AE280038F3A1 /* MediaListTableViewController.swift */; };
@@ -20,7 +20,7 @@
 		37C8EA152C37A7CE0038F3A1 /* MediaPlayerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaPlayerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C8EA182C37A7CE0038F3A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37C8EA1A2C37A7CE0038F3A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37C8EA1C2C37A7CE0038F3A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37C8EA1C2C37A7CE0038F3A1 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
 		37C8EA212C37A7CF0038F3A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37C8EA242C37A7CF0038F3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37C8EA262C37A7CF0038F3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 			children = (
 				37C8EA182C37A7CE0038F3A1 /* AppDelegate.swift */,
 				37C8EA1A2C37A7CE0038F3A1 /* SceneDelegate.swift */,
-				37C8EA1C2C37A7CE0038F3A1 /* ViewController.swift */,
+				37C8EA1C2C37A7CE0038F3A1 /* MediaPlayerViewController.swift */,
 				37C8EA2F2C37AE280038F3A1 /* MediaListTableViewController.swift */,
 				37C8EA312C37AE8F0038F3A1 /* MediaItem.swift */,
 				37C8EA212C37A7CF0038F3A1 /* Assets.xcassets */,
@@ -141,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37C8EA302C37AE280038F3A1 /* MediaListTableViewController.swift in Sources */,
-				37C8EA1D2C37A7CE0038F3A1 /* ViewController.swift in Sources */,
+				37C8EA1D2C37A7CE0038F3A1 /* MediaPlayerViewController.swift in Sources */,
 				37C8EA322C37AE8F0038F3A1 /* MediaItem.swift in Sources */,
 				37C8EA192C37A7CE0038F3A1 /* AppDelegate.swift in Sources */,
 				37C8EA1B2C37A7CE0038F3A1 /* SceneDelegate.swift in Sources */,
