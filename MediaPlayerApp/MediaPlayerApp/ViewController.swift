@@ -15,12 +15,8 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         title = "MediaPlayer"
     }
-    
-    
 }
 
 #Preview {
-    PreviewSupport {
-        UINavigationController(rootViewController: ViewController())
-    }
+    UINavigationController(rootViewController: ViewController())
 }
