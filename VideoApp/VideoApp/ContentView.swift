@@ -12,7 +12,12 @@ struct ContentView: View {
     @State var player: AVPlayer?
     
     var body: some View {
-        VideoPlayer(player: player)
+        VideoPlayer(player: player, videoOverlay: {
+            VStack {
+                Text("Overlay text to appear")
+                    .foregroundStyle(.white)
+            }
+        })
             .frame(height: 320)
             .onAppear {
                 guard let videoURL = Bundle.main.url(forResource: "SaturnV", withExtension: "mov") else {
@@ -21,6 +26,7 @@ struct ContentView: View {
                 }
                 player = AVPlayer(url: videoURL as URL)
             }
+            .ignoresSafeArea()
     }
 }
 
