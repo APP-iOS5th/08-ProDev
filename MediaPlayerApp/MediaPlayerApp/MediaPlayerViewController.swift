@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 extension UIButton {
     static func createPlayControlButton(sysytemImage: String, pointSize: CGFloat) -> UIButton {
@@ -21,6 +22,9 @@ extension UIButton {
 
 class MediaPlayerViewController: UIViewController {
     let item: MediaItem
+    
+    lazy var playerItem = AVPlayerItem(url: item.url)
+    lazy var player = AVPlayer(playerItem: playerItem)
     
     var goPrev: (() -> Void)?
     var goNext: (() -> Void)?
@@ -98,8 +102,6 @@ class MediaPlayerViewController: UIViewController {
         
         view.addSubview(progressBar)
         
-        progressBar.progress = 0.5
-
         NSLayoutConstraint.activate([
             progressBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             progressBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
@@ -135,21 +137,51 @@ class MediaPlayerViewController: UIViewController {
 
         prevButton.isEnabled = goPrev != nil
         nextButton.isEnabled = goNext != nil
+        
+        progressBar.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(seekMusic)))
     }
     
     func preparePlay() {
         isPlaying = false
+
+        print(playerItem.duration)
+        
+        let interval = CMTimeMakeWithSeconds(0.1, preferredTimescale: Int32(NSEC_PER_SEC))
+        player.addPeriodicTimeObserver(forInterval: interval, queue: .main, using: {
+            [weak self] elapsedSeconds in
+            
+            if let currentItem = self?.player.currentItem {
+                let duration = CMTimeGetSeconds(currentItem.duration)
+                let currentTime = CMTimeGetSeconds(currentItem.currentTime())
+
+                DispatchQueue.main.async {
+                    if duration.isNaN || duration == 0 {
+                        self?.progressBar.progress = 0
+                    } else {
+                        self?.progressBar.progress = Float(currentTime / duration)
+                    }
+                }
+                print("Duration: \(duration) s")
+                print("Current time: \(currentTime) s")
+            }
+        })
     }
     
     func play() {
         print("play")
+        player.play()
     }
     
     func pause() {
         print("pause")
+        player.pause()
+    }
+    
+    @objc func seekMusic(_ sender: UIProgressView) {
+        print(sender)
     }
 }
 
 #Preview {
-    UINavigationController(rootViewController: MediaPlayerViewController(item: MediaItem.samples[1]))
+    UINavigationController(rootViewController: MediaPlayerViewController(item: MediaItem.samples[0]))
 }
