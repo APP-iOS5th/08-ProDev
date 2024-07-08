@@ -62,4 +62,6 @@ xcuserdata/
 
 *.xcconfig
 
+# ignore large files
 *.mov
+*.pdf
