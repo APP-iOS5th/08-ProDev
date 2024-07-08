@@ -17,7 +17,26 @@ struct ContentView: View {
     
     @State var message = ""
     @State var buttonStatus = true
+        
+    var body: some View {
+        VStack {
+            TextEditor(text: $message)
+                .frame(width: 350, height: 400)
+            Button(buttonStatus ? "Start recording" : "Stop recording", action: {
+                buttonStatus.toggle()
+                if buttonStatus {
+                    stopRecording()
+                } else {
+                    startRecording()
+                }
+            })
+            .padding()
+            .background(buttonStatus ? Color.green : Color.red)
+        }
+        .padding()
+    }
     
+    // MARK: - Methods
     func startRecording() {
         message = "Start recording"
         let node = audioEngine.inputNode
@@ -55,24 +74,7 @@ struct ContentView: View {
         audioEngine.inputNode.removeTap(onBus: 0)
         recognitionRequest?.endAudio()
     }
-    
-    var body: some View {
-        VStack {
-            TextEditor(text: $message)
-                .frame(width: 350, height: 400)
-            Button(buttonStatus ? "Start recording" : "Stop recording", action: {
-                buttonStatus.toggle()
-                if buttonStatus {
-                    stopRecording()
-                } else {
-                    startRecording()
-                }
-            })
-            .padding()
-            .background(buttonStatus ? Color.green : Color.red)
-        }
-        .padding()
-    }
+
 }
 
 #Preview {
