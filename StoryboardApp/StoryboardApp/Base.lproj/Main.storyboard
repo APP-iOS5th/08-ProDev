@@ -21,7 +21,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="ilL-KH-97z" kind="show" id="CfG-Yp-A19"/>
+                                    <segue destination="ilL-KH-97z" kind="show" destinationCreationSelector="openSwiftUIView:" id="CfG-Yp-A19"/>
                                 </connections>
                             </button>
                         </subviews>
