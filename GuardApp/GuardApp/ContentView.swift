@@ -18,7 +18,7 @@ struct ContentView: View {
                 .scaledToFit()
                 .frame(width: 300, height: 400)
             Button {
-                getImage()
+                getImage("xyz")
             } label: {
                 Text("Add Picture")
             }
@@ -26,8 +26,13 @@ struct ContentView: View {
         .padding()
     }
     
-    func getImage() {
-       showImage = UIImage(named: "car")!
+    func getImage(_ imageName: String) {
+        // 전통적인 방법
+        if UIImage(named: imageName) != nil {
+            showImage = UIImage(named: imageName)!
+        } else {
+            showImage = UIImage(systemName: "xmark.octagon.fill")!
+        }
     }
 }
 
