@@ -65,3 +65,5 @@ xcuserdata/
 # ignore large files
 *.mov
 *.pdf
+*.jpg
+*.png
